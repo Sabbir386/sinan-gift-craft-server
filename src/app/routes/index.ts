@@ -17,6 +17,7 @@ import { SocialMediaPostRoutes } from '../SocialMediaPost/socialMediaPost.routes
 import { AffiliateRewardsRoutes } from '../AffiliateReward/affiliateReward.routes';
 import { SurveyCompletedRoutes } from '../SurveyCompleted/surveyCompleted.routes';
 import { BonusRewardsRoutes } from '../BonusReward/BonusRewardRoutes';
+import { SubCategoryRoutes } from '../SubCategory/subcategory.routes';
 
 
 
@@ -66,6 +67,10 @@ const moduleRoutes = [
   {
     path: '/category',
     route: CategoryRoutes,
+  },
+  {
+    path: '/subCategory',
+    route: SubCategoryRoutes,
   },
   {
     path: '/network',
