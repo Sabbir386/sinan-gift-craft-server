@@ -18,6 +18,7 @@ import { AffiliateRewardsRoutes } from '../AffiliateReward/affiliateReward.route
 import { SurveyCompletedRoutes } from '../SurveyCompleted/surveyCompleted.routes';
 import { BonusRewardsRoutes } from '../BonusReward/BonusRewardRoutes';
 import { SubCategoryRoutes } from '../SubCategory/subcategory.routes';
+import { ProductRoutes } from '../Product/product.routes';
 
 
 
@@ -55,6 +56,10 @@ const moduleRoutes = [
   {
     path: '/offer',
     route: OfferRoutes,
+  },
+  {
+    path: '/products',
+    route: ProductRoutes,
   },
   {
     path: '/completedOffer',

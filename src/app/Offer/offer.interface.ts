@@ -28,11 +28,9 @@ export type TOffer = {
   dailyLimit?: number;
   totalLimit?: number;
   price: number;
-
   description?: string;
   terms?: string;
   image?: string;
-
   points?: number;
   completionLimit?: number;
   completionWindow?: number;
