@@ -1,0 +1,37 @@
+import { Model, Types } from 'mongoose';
+
+export type TGender = 'male' | 'female' | 'other';
+export type TBloodGroup =
+  | 'A+'
+  | 'A-'
+  | 'B+'
+  | 'B-'
+  | 'AB+'
+  | 'AB-'
+  | 'O+'
+  | 'O-';
+
+
+
+export type TAdvertiser = {
+  _id: any;
+  id: string;
+  user: Types.ObjectId;
+  designation: string;
+  name: string;
+  gender: TGender;
+  dateOfBirth?: Date;
+  email: string;
+  contactNo: string;
+  emergencyContactNo: string;
+  bloodGroup?: TBloodGroup;
+  presentAddress: string;
+  permanentAddress: string;
+  profileImg?: string;
+  isDeleted: boolean;
+};
+
+export interface AdvertiserModel extends Model<TAdvertiser> {
+  // eslint-disable-next-line no-unused-vars
+  isUserExists(id: string): Promise<TAdvertiser | null>;
+}
