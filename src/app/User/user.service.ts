@@ -98,17 +98,17 @@ const createUserIntoDb = async (
     if (!newNormalUser.length) throw new AppError(httpStatus.BAD_REQUEST, 'Failed to create NormalUser');
 
     // Initialize the reward record for the user
-    const reward = new Reward({
-      userId: newUser[0]._id,
-      claimedDays: [],
-      loginRewards: 0,
-      claimCount: 0,
-      taskCompletedRewards: 0,
-      taskClaimCount: 0,
-      surveyCompletedRewards: 0,
-      signUpBonus: 500, 
-    });
-    await reward.save();
+    // const reward = new Reward({
+    //   userId: newUser[0]._id,
+    //   claimedDays: [],
+    //   loginRewards: 0,
+    //   claimCount: 0,
+    //   taskCompletedRewards: 0,
+    //   taskClaimCount: 0,
+    //   surveyCompletedRewards: 0,
+    //   signUpBonus: 500, 
+    // });
+    // await reward.save();
 
     // Commit the transaction
     await session.commitTransaction();

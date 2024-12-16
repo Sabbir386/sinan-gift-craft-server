@@ -17,7 +17,7 @@ export type TNormalUser = {
   _id: any; // Consider using Types.ObjectId for consistency
   id: string;
   user: Types.ObjectId; // User reference type
-  ip: string;
+  // ip: string;
   country?: string;
   designation?: string;
   name: string;

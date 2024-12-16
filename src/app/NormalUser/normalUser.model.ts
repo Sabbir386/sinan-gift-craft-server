@@ -19,11 +19,11 @@ const NormalUserSchema = new Schema<TNormalUser, NormalUserModel>(
     designation: {
       type: String,
     },
-    ip: {
-      type: String,
-      unique: true,
-      sparse: true,
-    },
+    // ip: {
+    //   type: String,
+    //   unique: true,
+    //   sparse: true,
+    // },
     country: {
       type: String,
     },
