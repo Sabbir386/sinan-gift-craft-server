@@ -19,6 +19,7 @@ import { SurveyCompletedRoutes } from '../SurveyCompleted/surveyCompleted.routes
 import { BonusRewardsRoutes } from '../BonusReward/BonusRewardRoutes';
 import { SubCategoryRoutes } from '../SubCategory/subcategory.routes';
 import { ProductRoutes } from '../Product/product.routes';
+import { OrderRoutes } from '../OrderCollection/order.routes';
 
 
 
@@ -60,6 +61,10 @@ const moduleRoutes = [
   {
     path: '/products',
     route: ProductRoutes,
+  },
+  {
+    path: '/user-order',
+    route: OrderRoutes,
   },
   {
     path: '/completedOffer',
