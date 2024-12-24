@@ -13,7 +13,9 @@ const createOrder = async (payload: TOrder) => {
   payload.orderId = orderId;
   return await Order.create(payload);
 };
-
+const getOrdersByEmail = async (email: string) => {
+  return await Order.find({ 'userInfo.email': email }).sort({ createdAt: -1 });
+};
 const getAllOrders = async () => {
   return await Order.find();
 };
@@ -36,4 +38,5 @@ export const OrderServices = {
   getSingleOrder,
   updateOrder,
   deleteOrder,
+  getOrdersByEmail
 };

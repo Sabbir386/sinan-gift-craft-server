@@ -15,7 +15,7 @@ export const orderValidationSchema = {
       }),
       items: z.array(
         z.object({
-          productId: z.string(),
+          productId: z.string().optional(),
           quantity: z.number().int().positive(),
           price: z.number().positive(),
         })
@@ -24,7 +24,6 @@ export const orderValidationSchema = {
       status: z.enum(['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled']).optional(),
     }),
   }),
-
   updateOrder: z.object({
     body: z.object({
       userInfo: z
@@ -49,6 +48,11 @@ export const orderValidationSchema = {
         .optional(),
       totalAmount: z.number().positive().optional(),
       status: z.enum(['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled']).optional(),
+    }),
+  }),
+  getOrdersByEmail: z.object({
+    query: z.object({
+      email: z.string().email("Invalid email address").nonempty("Email is required"),
     }),
   }),
 };

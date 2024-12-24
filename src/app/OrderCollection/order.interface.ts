@@ -13,7 +13,7 @@ export interface TOrder {
     phone: string;
   };
   items: {
-    productId: Types.ObjectId;
+    productId: string;
     quantity: number;
     price: number;
   }[];

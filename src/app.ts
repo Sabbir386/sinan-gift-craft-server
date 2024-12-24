@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // use when cors issue face
 const allowedOrigin = [
-  'https://cashooz-838b0.web.app',
+  'https://sinangiftcorner.web.app',
   'http://localhost:5173',
 ];
 // const allowedOrigin = 'http://localhost:5173';
