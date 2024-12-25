@@ -25,6 +25,55 @@ const createProduct = async (payload: TProduct) => {
 const getAllProducts = async () => {
   return await Product.find().populate('category subCategory');
 };
+// with categories 
+const getAllCategoriesWithProducts = async () => {
+  try {
+    const categoriesWithProducts = await Product.aggregate([
+      {
+        $lookup: {
+          from: 'categories', // Collection name for categories
+          localField: 'category', // Field in Product referencing Category
+          foreignField: '_id', // Field in Category being referenced
+          as: 'categoryDetails',
+        },
+      },
+      {
+        $unwind: '$categoryDetails', // Deconstruct array of categoryDetails
+      },
+      {
+        $group: {
+          _id: '$categoryDetails._id', // Group by category ID
+          categoryName: { $first: '$categoryDetails.categoryName' }, // Get the category name
+          products: {
+            $push: {
+              _id: '$_id',
+              name: '$name',
+              description: '$description',
+              quantity: '$quantity',
+              price: '$price',
+              salePrice: '$salePrice',
+              colours: '$colours',
+              sizes: '$sizes',
+              sku: '$sku',
+              slug: '$slug',
+              images: '$images',
+              createdAt: '$createdAt',
+              updatedAt: '$updatedAt',
+            },
+          },
+        },
+      },
+      {
+        $sort: { categoryName: 1 }, // Sort by category name alphabetically
+      },
+    ]);
+
+    return categoriesWithProducts;
+  } catch (error) {
+    console.error('Error retrieving categories with products:', error);
+    throw error;
+  }
+};
 
 const getSingleProduct = async (id: string) => {
   return await Product.findById(id).populate('category subCategory');
@@ -47,6 +96,7 @@ const deleteProduct = async (id: string) => {
 export const ProductServices = {
   createProduct,
   getAllProducts,
+  getAllCategoriesWithProducts,
   getSingleProduct,
   updateProduct,
   deleteProduct,
