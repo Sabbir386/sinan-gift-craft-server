@@ -25,6 +25,11 @@ const createProduct = async (payload: TProduct) => {
 const getAllProducts = async () => {
   return await Product.find().populate('category subCategory');
 };
+// all product by categoryId 
+const getAllProductsByCategory = async (categoryId: string) => {
+  return await Product.find({ category: categoryId }).populate('category subCategory');
+};
+
 // with categories 
 const getAllCategoriesWithProducts = async () => {
   try {
@@ -96,6 +101,7 @@ const deleteProduct = async (id: string) => {
 export const ProductServices = {
   createProduct,
   getAllProducts,
+  getAllProductsByCategory, // New method
   getAllCategoriesWithProducts,
   getSingleProduct,
   updateProduct,

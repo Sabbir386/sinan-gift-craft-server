@@ -16,7 +16,7 @@ const CategorySchema = new Schema<TCategory, CategoryModel>(
     
     categoryName: {
       type: String,
-      required: [true, 'Name is required'],
+      required: [true, 'CategoryName is required'],
     },
   },
   {

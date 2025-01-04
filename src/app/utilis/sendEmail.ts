@@ -31,7 +31,8 @@ const emailTemplate = (orderId: string, userEmail: string) => `
       <p>To manage your order and track its progress, you need to log in to your SINAN SHOP account using the credentials provided below:</p>
       <p><strong>Login URL:</strong> <a href="https://sinangiftcorner.web.app/login" target="_blank">https://sinangiftcorner.web.app/login</a></p>
       <p><strong>Email:</strong> ${userEmail}</p>
-      <p><strong>Password:</strong> user12345</p>
+      <p><strong>Password:</strong> If you registered using a custom password, use that. Otherwise, use the default password: <strong>user12345</strong>.</p>
+
        <p>We are processing your order and will notify you once it has been shipped. You can see your order Progress at the link below:</p>
       <p><a href="https://sinangiftcorner.web.app/login" target="_blank">View My Order</a></p>
       <p>If you have any questions or require assistance, feel free to contact our support team.</p>
@@ -77,7 +78,7 @@ export const sendEmail = async (userEmail: string, orderId: string) => {
       to: userEmail, // Recipient address
       subject: "Order Confirmation - Sinan Shop",
       text: `Thank you for your order! Your order ID is ${orderId}.`,
-      html: emailTemplate(orderId,userEmail), // Custom email template
+      html: emailTemplate(orderId, userEmail), // Custom email template
     };
 
     // Send the email

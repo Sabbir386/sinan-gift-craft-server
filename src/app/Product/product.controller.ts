@@ -28,6 +28,7 @@ const getAllProducts = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+
 // with categories 
 const getAllCategoriesWithProducts = catchAsync(async (req: Request, res: Response) => {
   const result = await ProductServices.getAllCategoriesWithProducts();
@@ -38,7 +39,20 @@ const getAllCategoriesWithProducts = catchAsync(async (req: Request, res: Respon
     message: 'Categories with products retrieved successfully',
     data: result,
   });
+});  
+// all product by single category 
+const getAllProductsByCategory = catchAsync(async (req: Request, res: Response) => {
+  const { categoryId } = req.params; // Retrieve categoryId from route params
+  const result = await ProductServices.getAllProductsByCategory(categoryId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Products retrieved successfully by category',
+    data: result,
+  });
 });
+
 
 const getSingleProduct = catchAsync(async (req: Request, res: Response) => {
   const productId = req.params.id;
@@ -79,6 +93,7 @@ const deleteProduct = catchAsync(async (req: Request, res: Response) => {
 export const ProductControllers = {
   createProduct,
   getAllProducts,
+  getAllProductsByCategory, // New method
   getAllCategoriesWithProducts,
   getSingleProduct,
   updateProduct,
