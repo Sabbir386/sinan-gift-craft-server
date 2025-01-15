@@ -9,7 +9,7 @@ const orderSchema = new Schema<TOrder>(
       firstName: { type: String, required: true },
       lastName: { type: String, required: true },
       city: { type: String, required: true },
-      country: { type: String, required: true },
+      country: { type: String },
       address: { type: String, required: true },
       email: { type: String, required: true },
       phone: { type: String, required: true },

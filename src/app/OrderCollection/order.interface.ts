@@ -7,7 +7,7 @@ export interface TOrder {
     firstName: string;
     lastName: string;
     city: string;
-    country: string;
+    country?: string;
     address: string;
     email: string;
     phone: string;

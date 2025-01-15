@@ -8,7 +8,7 @@ export const orderValidationSchema = {
         firstName: z.string(),
         lastName: z.string(),
         city: z.string(),
-        country: z.string(),
+        country: z.string().optional(),
         address: z.string(),
         email: z.string().email(),
         phone: z.string(),
