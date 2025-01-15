@@ -1,6 +1,5 @@
 // order.validation.ts
 import { z } from 'zod';
-
 export const orderValidationSchema = {
   createOrder: z.object({
     body: z.object({
@@ -16,8 +15,11 @@ export const orderValidationSchema = {
       items: z.array(
         z.object({
           productId: z.string().optional(),
+          name: z.string().optional(),
           quantity: z.number().int().positive(),
           price: z.number().positive(),
+          colour: z.string().optional(),
+          size: z.number().optional(),
         })
       ),
       totalAmount: z.number().positive(),
@@ -41,8 +43,11 @@ export const orderValidationSchema = {
         .array(
           z.object({
             productId: z.string().optional(),
+            name: z.string().optional(),
             quantity: z.number().int().positive().optional(),
             price: z.number().positive().optional(),
+            colour: z.string().optional(),
+            size: z.number().optional(),
           })
         )
         .optional(),

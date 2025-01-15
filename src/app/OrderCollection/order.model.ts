@@ -18,8 +18,11 @@ const orderSchema = new Schema<TOrder>(
       {
         // productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
         productId: { type: String },
+        name: { type: String },
         quantity: { type: Number, required: true },
         price: { type: Number, required: true },
+        size: { type: Number },
+        colour: { type: String },
       },
     ],
     totalAmount: { type: Number, required: true },

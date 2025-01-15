@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { Colours, Sizes } from './product.interface';
 import { Types } from 'mongoose';
 
 const objectIdSchema = z.string().refine((id) => Types.ObjectId.isValid(id), {
@@ -14,12 +13,12 @@ export const productValidationSchema = {
       quantity: z.number().int().nonnegative(),
       price: z.number().nonnegative(),
       salePrice: z.number().nonnegative().optional(),
-      colours: z.array(z.enum(Object.values(Colours) as [Colours])).optional(),
-      sizes: z.array(z.enum(Object.values(Sizes) as [Sizes])).optional(),
+      colours: z.array(z.string()).optional(), // Validation for string array
+      sizes: z.array(z.number()).optional(),  // Validation for number array
       sku: z.string(),
       category: objectIdSchema,
       subCategory: objectIdSchema.optional(),
-      slug: z.string().optional(),  // Just make slug optional without validation
+      slug: z.string().optional(),
       images: z.array(z.string()).optional(),
     }),
   }),
@@ -30,18 +29,12 @@ export const productValidationSchema = {
       quantity: z.number().int().nonnegative().optional(),
       price: z.number().nonnegative().optional(),
       salePrice: z.number().nonnegative().optional(),
-      colours: z
-        .array(z.enum(Object.values(Colours) as [Colours]))
-        .optional(),
-      sizes: z
-        .array(z.enum(Object.values(Sizes) as [Sizes]))
-        .optional(),
+      colours: z.array(z.string()).optional(), // Validation for string array
+      sizes: z.array(z.number()).optional(),   // Validation for number array
       sku: z.string().optional(),
       category: objectIdSchema.optional(),
       subCategory: objectIdSchema.optional(),
-      slug: z
-        .string()
-        .optional(),  // Slug is optional here as well
+      slug: z.string().optional(),
       images: z.array(z.string()).optional(),
     }),
   }),

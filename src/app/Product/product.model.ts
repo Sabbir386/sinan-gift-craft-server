@@ -1,6 +1,5 @@
-import mongoose, { Schema, Types } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import { TProduct } from './product.interface';
-import { Colours, Sizes } from './product.interface';
 
 const productSchema = new Schema<TProduct>({
   name: { type: String, required: true },
@@ -8,8 +7,8 @@ const productSchema = new Schema<TProduct>({
   quantity: { type: Number, required: true },
   price: { type: Number, required: true },
   salePrice: { type: Number },
-  colours: { type: [String], enum: Object.values(Colours) },
-  sizes: { type: [String], enum: Object.values(Sizes) },
+  colours: { type: [String] }, // Allows any string array
+  sizes: { type: [Number] },   // Allows any number array
   sku: { type: String, required: true, unique: true },
   category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
   subCategory: { type: Schema.Types.ObjectId, ref: 'SubCategory' },

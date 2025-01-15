@@ -14,8 +14,11 @@ export interface TOrder {
   };
   items: {
     productId: string;
+    name?: string;
     quantity: number;
     price: number;
+    colour?: string;
+    size?: number;
   }[];
   totalAmount: number;
   status: 'Pending' | 'Processing' | 'Shipped' | 'Delivered' | 'Cancelled';
