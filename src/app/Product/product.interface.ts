@@ -6,8 +6,8 @@ export interface TProduct {
   quantity: number;
   price: number;
   salePrice?: number;
-  colours?: string[]; // Accepts any string array
-  sizes?: number[];   // Accepts an array of numbers
+  colours?: string[]; 
+  sizes?: number[]; 
   sku: string;
   category: Types.ObjectId;
   subCategory?: Types.ObjectId;

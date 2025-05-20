@@ -13,9 +13,9 @@ export const productValidationSchema = {
       quantity: z.number().int().nonnegative(),
       price: z.number().nonnegative(),
       salePrice: z.number().nonnegative().optional(),
-      colours: z.array(z.string()).optional(), // Validation for string array
-      sizes: z.array(z.number()).optional(),  // Validation for number array
-      sku: z.string(),
+      colours: z.array(z.string()).optional(), 
+      sizes: z.array(z.number()).optional(),
+      sku: z.string().optional(),
       category: objectIdSchema,
       subCategory: objectIdSchema.optional(),
       slug: z.string().optional(),

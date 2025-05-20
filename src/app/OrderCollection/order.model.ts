@@ -7,7 +7,7 @@ const orderSchema = new Schema<TOrder>(
     orderId: { type: String, required: true, unique: true },
     userInfo: {
       firstName: { type: String, required: true },
-      lastName: { type: String, required: true },
+      lastName: { type: String },
       city: { type: String, required: true },
       country: { type: String },
       address: { type: String, required: true },

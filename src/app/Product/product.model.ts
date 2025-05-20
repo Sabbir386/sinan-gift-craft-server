@@ -7,9 +7,9 @@ const productSchema = new Schema<TProduct>({
   quantity: { type: Number, required: true },
   price: { type: Number, required: true },
   salePrice: { type: Number },
-  colours: { type: [String] }, // Allows any string array
-  sizes: { type: [Number] },   // Allows any number array
-  sku: { type: String, required: true, unique: true },
+  colours: { type: [String] }, 
+  sizes: { type: [Number] },
+  sku: { type: String, required: true },
   category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
   subCategory: { type: Schema.Types.ObjectId, ref: 'SubCategory' },
   slug: { type: String, required: true, unique: true },

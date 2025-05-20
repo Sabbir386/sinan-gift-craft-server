@@ -5,7 +5,7 @@ export const orderValidationSchema = {
     body: z.object({
       userInfo: z.object({
         firstName: z.string(),
-        lastName: z.string(),
+        lastName: z.string().optional(),
         city: z.string(),
         country: z.string().optional(),
         address: z.string(),

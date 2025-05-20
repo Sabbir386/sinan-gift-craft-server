@@ -5,7 +5,7 @@ export interface TOrder {
   orderId: string;
   userInfo: {
     firstName: string;
-    lastName: string;
+    lastName?: string;
     city: string;
     country?: string;
     address: string;
